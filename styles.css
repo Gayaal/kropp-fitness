@@ -222,7 +222,7 @@ svg * {
 	--color-light-gray: #c4c4c4;
 
 	--border-radius: 30px;
-	--border: 1px solid var(var(--color-light));
+	--border: 1px solid var(--color-light);
 
 	--font-family-base: 'Heebo', sans-serif;
 	--font-family-accent: 'Yantramanav', sans-serif;
@@ -237,7 +237,8 @@ svg * {
 
 body {
 	font-family: var(--font-family-base);
-	font-style: 16px;
+	font-weight: 300;
+	font-size: 16px;
 	line-height: 1.75;
 	color: var(--color-light-gray);
 	background-color: var(--color-dark);
@@ -300,6 +301,7 @@ h6 {
 	justify-content: space-between;
 	align-items: center;
 	column-gap: 20px;
+	padding-inline: 32px;
 }
 
 .header-logo {
@@ -309,6 +311,7 @@ h6 {
 .header-menu-list {
 	display: flex;
 	column-gap: 50px;
+	flex-wrap: wrap;
 }
 
 .header-menu-link {
@@ -337,7 +340,62 @@ h6 {
 }
 
 .header-burger-button {
-	display: inline-flex;
+	display: flex;
+	flex-direction: column;
+	row-gap: 4px;
 	justify-content: center;
-	align-items: center;
+	width: 40px;
+	height: 40px;
+	color: var(--color-light);
+	padding-left: 8px;
+	background-color: transparent;
+	border: var(--border);
+	border-radius: var(--border-radius);
+}
+
+.header-burger-button:hover {
+	color: var(--color-light-gray);
+	border-color: currentColor;
+}
+
+.header-burger-button-line {
+	height: 1px;
+	width: 6px;
+	background-color: currentColor;
+	box-shadow: 16px 0 0 currentColor;
+}
+
+@media (max-width: 1024px) {
+	.header {
+		flex-wrap: wrap;
+		row-gap: 10px;
+		padding-top: 20px;
+		padding-inline: 16px;
+	}
+
+	.header-menu {
+		order: 1;
+		flex-basis: 100%;
+	}
+	.header-menu-link {
+		height: 50px;
+	}
+}
+
+@media (max-width: 767px) {
+	.button {
+		padding-inline: 18px;
+	}
+	.header {
+		padding-top: 10px;
+	}
+	.header-menu-list {
+		column-gap: 24px;
+	}
+	.header-menu-link {
+		height: 32px;
+	}
+	.header-actions {
+		column-gap: 15px;
+	}
 }
