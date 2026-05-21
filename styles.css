@@ -217,6 +217,7 @@ svg * {
 
 :root {
 	--color-dark: #000000;
+	--color-dark-alternate: #131619;
 	--color-light: #ffffff;
 	--color-dark-gray: #404040;
 	--color-light-gray: #c4c4c4;
@@ -258,6 +259,19 @@ a {
 
 a:hover {
 	color: var(--color-light-gray);
+}
+
+.visually-hidden {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	margin: -1px !important;
+	border: 0 !important;
+	padding: 0 !important;
+	white-space: nowrap !important;
+	clip-path: inset(100%) !important;
+	clip: rect(0 0 0 0) !important;
+	overflow: hidden !important;
 }
 
 .container {
@@ -302,6 +316,7 @@ h6 {
 	align-items: center;
 	column-gap: 20px;
 	padding-inline: 32px;
+	background-color: var(--color-dark-alternate);
 }
 
 .header-logo {
@@ -329,7 +344,7 @@ h6 {
 .header-menu-link.is-current::after {
 	content: '';
 	width: 5px;
-	height: 5px;
+	aspect-ratio: 1;
 	border-radius: 50%;
 	background-color: currentColor;
 }
@@ -345,12 +360,12 @@ h6 {
 	row-gap: 4px;
 	justify-content: center;
 	width: 40px;
-	height: 40px;
+	aspect-ratio: 1;
 	color: var(--color-light);
 	padding-left: 8px;
 	background-color: transparent;
 	border: var(--border);
-	border-radius: var(--border-radius);
+	border-radius: 50%;
 }
 
 .header-burger-button:hover {
