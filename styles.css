@@ -380,6 +380,20 @@ h6 {
 	box-shadow: 16px 0 0 currentColor;
 }
 
+.banner {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	padding: 36px 70px;
+	min-height: 985px;
+	color: var(--color-light);
+	background-color: var(--color-dark-alternate);
+}
+
+.banner-body {
+	text-transform: uppercase;
+}
+
 @media (max-width: 1024px) {
 	.header {
 		flex-wrap: wrap;
