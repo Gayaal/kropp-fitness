@@ -234,6 +234,8 @@ svg * {
 	--container-padding-x: 15px;
 
 	--transition-duration: 0.2s;
+
+	--header-height: 90px;
 }
 
 body {
@@ -311,6 +313,7 @@ h6 {
 }
 
 .header {
+	min-height: var(--header-height);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -385,7 +388,7 @@ h6 {
 	flex-direction: column;
 	justify-content: end;
 	padding: 36px 70px;
-	min-height: 985px;
+	min-height: calc(100vh - var(--header-height));
 	color: var(--color-light);
 	background-color: var(--color-dark-alternate);
 }
@@ -394,11 +397,71 @@ h6 {
 	text-transform: uppercase;
 }
 
+.banner-info {
+	display: flex;
+	align-items: end;
+	font-weight: 700;
+	font-size: clamp(16px, 1.56vw, 30px);
+	line-height: 1.27;
+}
+
+.banner-info::before {
+	content: '';
+	width: clamp(60px, 10.1vw, 194px);
+	aspect-ratio: 1;
+	margin-right: 30px;
+	background: url('./icons/bold-arrow-down-right.svg') center/contain no-repeat;
+}
+
+.banner-title {
+	font-size: min(18.75vw, 360px);
+	line-height: 1;
+}
+
+.banner-pagination-list {
+	display: flex;
+	justify-content: center;
+}
+
+.banner-pagination-item {
+	display: flex;
+}
+
+.banner-pagination-button {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	padding: 7px;
+	border: none;
+	background-color: transparent;
+}
+
+.banner-pagination-button::after {
+	content: '';
+	width: 10px;
+	aspect-ratio: 1;
+	border: var(--border);
+	border-radius: 50%;
+	transition-duration: var(--transition-duration);
+}
+
+.banner-pagination-button.is-current::after {
+	background-color: var(--color-light);
+}
+
+.banner-pagination-button:not(.is-current):hover::after {
+	border-color: var(--color-light-gray);
+}
+
 @media (max-width: 1024px) {
 	.header {
 		flex-wrap: wrap;
 		row-gap: 10px;
 		padding-top: 20px;
+	}
+
+	.header,
+	.banner {
 		padding-inline: 16px;
 	}
 
@@ -406,8 +469,13 @@ h6 {
 		order: 1;
 		flex-basis: 100%;
 	}
+
 	.header-menu-link {
 		height: 50px;
+	}
+
+	.banner {
+		row-gap: 10px;
 	}
 }
 
@@ -415,16 +483,28 @@ h6 {
 	.button {
 		padding-inline: 18px;
 	}
+
 	.header {
 		padding-top: 10px;
 	}
+
 	.header-menu-list {
 		column-gap: 24px;
 	}
+
 	.header-menu-link {
 		height: 32px;
 	}
+
 	.header-actions {
 		column-gap: 15px;
+	}
+
+	.banner-info {
+		margin-bottom: 5px;
+	}
+
+	.banner-info::before {
+		margin-right: 10px;
 	}
 }
