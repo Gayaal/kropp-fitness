@@ -558,6 +558,21 @@ h6 {
 	margin-bottom: 37px;
 }
 
+.training-types {
+	position: relative;
+	max-width: 1920px;
+	margin-inline: auto;
+	padding-top: 70px;
+	padding-bottom: 120px;
+	background-color: var(--color-dark);
+}
+
+.training-types-list {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 60px;
+}
+
 @media (max-width: 1919px) {
 	.motivation-card-image {
 		margin-block: -20px;
