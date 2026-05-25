@@ -301,7 +301,7 @@ h6 {
 }
 
 .title-medium {
-	font-size: 40px;
+	font-size: clamp(20px, 2.08vw, 40px);
 	line-height: 1.3;
 	color: var(--color-light);
 }
@@ -334,10 +334,6 @@ h6 {
 	text-stroke: 1px var(--color-light-gray);
 }
 
-.motivation-card-description {
-	max-width: 400px;
-}
-
 .button {
 	display: inline-flex;
 	align-items: center;
@@ -348,6 +344,7 @@ h6 {
 	line-height: 2;
 	letter-spacing: 1.2px;
 	text-transform: uppercase;
+	text-decoration: none;
 	background-color: var(--color-light);
 	border: none;
 	border-radius: var(--border-radius);
@@ -355,6 +352,33 @@ h6 {
 }
 
 .button:hover {
+	background-color: var(--color-light-gray);
+}
+
+.button.transparent {
+	position: relative;
+	height: var(--input-height);
+	padding-left: 31px;
+	padding-right: 80px;
+	background-color: transparent;
+	border: var(--border);
+}
+
+.button.transparent::after {
+	content: '';
+	position: absolute;
+	height: 100%;
+	aspect-ratio: 1;
+	border: var(--border);
+	border-radius: 50%;
+	right: 0;
+	padding: 10px;
+	display: block;
+	background: url('./icons/arrow-top-right.svg') center/70% no-repeat;
+}
+
+.button.transparent:hover {
+	color: var(--color-dark);
 	background-color: var(--color-light-gray);
 }
 
@@ -526,6 +550,20 @@ h6 {
 	margin-bottom: 14px;
 }
 
+.motivation-card-description {
+	max-width: 400px;
+}
+
+.motivation-card-description:not(:last-child) {
+	margin-bottom: 37px;
+}
+
+@media (max-width: 1919px) {
+	.motivation-card-image {
+		margin-block: -20px;
+	}
+}
+
 @media (max-width: 1024px) {
 	.header {
 		flex-wrap: wrap;
@@ -549,6 +587,16 @@ h6 {
 
 	.banner {
 		row-gap: 10px;
+	}
+
+	.motivation-card {
+		padding-block: 50px;
+	}
+
+	.motivation-card-image {
+		max-width: 30%;
+		height: auto;
+		margin-block: 0;
 	}
 }
 
@@ -579,5 +627,23 @@ h6 {
 
 	.banner-info::before {
 		margin-right: 10px;
+	}
+
+	.motivation-card,
+	.motivation-item:nth-child(even) .motivation-card {
+		flex-direction: column-reverse;
+	}
+
+	.motivation-card {
+		padding-block: 30px;
+		row-gap: 30px;
+	}
+
+	.motivation-card-image {
+		max-width: 60%;
+	}
+
+	.motivation-card-description:not(:last-child) {
+		margin-bottom: 20px;
 	}
 }
