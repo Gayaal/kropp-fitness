@@ -417,7 +417,8 @@ h6 {
 	border-radius: var(--border-radius);
 }
 
-.input::placeholder {
+.input::placeholder,
+select.input:invalid {
 	color: var(--color-light-gray);
 }
 
@@ -429,6 +430,18 @@ h6 {
 	background-color: var(--color-light-gray);
 	color: var(--color-dark);
 	outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+	-moz-appearance: textfield;
 }
 
 .header {
@@ -807,6 +820,48 @@ h6 {
 
 .family-image {
 	scroll-snap-type: start;
+}
+
+.calculate {
+	background-color: var(--color-dark-alternate);
+	padding-block: 146px;
+}
+
+.calculate-inner {
+	display: flex;
+	align-items: center;
+	column-gap: 36px;
+}
+
+.calculate-body {
+	flex-grow: 1;
+	max-width: 627px;
+}
+
+.calculate-title:not(:last-child) {
+	margin-bottom: 16px;
+}
+
+.calculate-description {
+	max-width: 385px;
+}
+
+.calculate-description:not(:last-child) {
+	margin-bottom: 30px;
+}
+
+.calculate-form-body {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 18px 30px;
+}
+
+.calculate-form-body:not(:last-child) {
+	margin-bottom: 26px;
+}
+
+.calculate-input.wide {
+	grid-column: -1 / 1;
 }
 
 @media (max-width: 1919px) {
